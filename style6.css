@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(-45deg, #ff6ec4, #7873f5, #4ac29a);
+  background-size: 600% 600%;
+  animation: gradientShift 20s ease infinite;
+}
+
+body::before {
+  content: 'Dhruvin Vaghela';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 10vw;
+  color: rgba(255, 255, 255, 0.08);
+  transform: translate(-50%, -50%);
+  letter-spacing: 5px;
+  z-index: 0;
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.05),
+    0 0 30px rgba(255,255,255,0.1);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+  text-align: center;
+}
+
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ball {
+  position: absolute;
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px #fff)
+          drop-shadow(0 0 20px #ff6ec4)
+          drop-shadow(0 0 30px #7873f5)
+          drop-shadow(0 0 40px #4ac29a);
+  transition: transform 0.1s ease;
+}
+
+.floor {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow:
+    0 0 10px #ff6ec4,
+    0 0 20px #7873f5,
+    0 0 30px #4ac29a;
+  z-index: 1;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
